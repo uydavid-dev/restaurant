@@ -9,11 +9,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
+    # public function index(ProduitRepository $produitRepository): Response
     public function index(): Response
     {
         return $this->render('home/index.html.twig', [
+            #'produits' => $produitRepository->lasTree(),
             'controller_name' => 'HomeController',
         ]);
     }
